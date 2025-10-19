@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 
 	"github.com/StackExchange/wmi"
 	"golang.org/x/sys/windows"
@@ -54,6 +55,9 @@ func main() {
 	}
 
 	cmd := exec.Command(exe, args...)
+	if dir := filepath.Dir(exe); dir != "." {
+		cmd.Dir = dir // Set working directory to executable's directory
+	}
 	err := cmd.Start()
 	if err != nil {
 		fmt.Printf("Error starting process: %v\n", err)
