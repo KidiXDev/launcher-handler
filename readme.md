@@ -33,4 +33,4 @@ go run main.go notepad.exe myfile.txt
 
 ## License
 
-MIT License - see LICENSE file for details
+MIT License - see [LICENSE](LICENSE) file for details
